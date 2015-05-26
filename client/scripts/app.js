@@ -18,3 +18,24 @@ app.config(['$routeProvider', function($routeProvider){
         //    redirectTo: '/home'
         //});
 }]);
+
+app.controller('LocationsController', ['$scope', '$http', function($scope, $http){
+    $scope.location ={};
+    $scope.locations =[];
+
+    var fetchLocations = function(){
+        console.log("click worked");
+        return $http.get('/locations').then(function(response){
+            if(response.status !== 200){
+                throw new Error('Failed to fetch locations from the API');
+            }
+            $scope.location={};
+            $scope.locations=response.data;
+            return response.data;
+        })
+    };
+
+    $scope.add = function(){
+        fetchLocations();
+    }
+}]);

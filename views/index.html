@@ -8,9 +8,9 @@
 <body>
 <div class="container">
     <h1>buffed<span class="minneapolis">Minneapolis / St. Paul</span></h1>
-    <div class="navigation">
+    <div class="navigation" ng-controller="LocationsController">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#locations">Locations</a></li>
+            <li role="presentation" class="active" ng-click="add()"><a href="#locations">Locations</a></li>
             <li role="presentation" class="dropdown" dropdown><a href="#" class="dropdown-toggle" dropdown-toggle data-toggle='dropdown' role="button">Search by<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Yoga</a></li>
