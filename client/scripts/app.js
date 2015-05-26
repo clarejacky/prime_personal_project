@@ -10,13 +10,13 @@ app.config(['$routeProvider', function($routeProvider){
         }).
         when('/about', {
             templateUrl: "/views/routes/about.html"
+        }).
+        when('/locations', {
+            templateUrl: "/views/routes/locations.html"
+        }).
+        otherwise({
+            redirectTo: '/home'
         });
-        //when('/projects', {
-        //    templateUrl: "/views/routes/projects.html"
-        //}).
-        //otherwise({
-        //    redirectTo: '/home'
-        //});
 }]);
 
 app.controller('LocationsController', ['$scope', '$http', function($scope, $http){
