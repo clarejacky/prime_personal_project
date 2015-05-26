@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var locations = require('./routes/locations');
 
 var app = express();
 
@@ -23,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/locations', locations);
 
 var mongoURI = "mongodb://localhost:27017/locations";
 var MongoDB = mongoose.connect(mongoURI).connection;
