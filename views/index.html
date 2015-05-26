@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-<p>Home Page</p>
+<div class="container">
+    <h1>buffed<span class="minneapolis">Minneapolis / St. Paul</span></h1>
+    <div class="navigation">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#locations">Locations</a></li>
+            <li role="presentation"><a href="#resources">Resources</a></li>
+            <li role="presentation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle='dropdown' role="button" dropdown-toggle ng-disabled="disabled">Search by<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>Yoga</li>
+                    <li>Barre Studio</li>
+                    <li>Pilates</li>
+                    <li>HIIT</li>
+                    <li>Crossfit</li>
+                    <!--<li class="divider"></li>-->
+                    <li>General Fitness Gym</li>
+                </ul>
+           </li>
+            <li role="presentation"><a href="#about">About</a></li>
+
+        </ul>
+    </div>
+    <main></main>
+</div>
+<script type="text/javascript" src="/vendor/angular/angular.min.js"></script>
+<script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/vendor/angular-bootstrap/dist/ui-bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascripts/app.min.js"></script>
 </body>
 </html>
