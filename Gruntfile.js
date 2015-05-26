@@ -62,15 +62,18 @@ module.exports = function(grunt) {
                     "stylesheets/style.css"
                 ],
                 "dest": "public/"
+            },
+            views: {
+                expand: true,
+                cwd: "client/views/",
+                src: [
+                    "location.html",
+                    "locations.html",
+                    "admin.html",
+                    "about.html"
+                ],
+                "dest": "public/views/routes/"
             }
-            //views: {
-            //    expand: true,
-            //    cwd: "client",
-            //    src: [
-            //        "views/userinfo.html"
-            //    ],
-            //    "dest": "public/"
-            //}
         }
     });
 
