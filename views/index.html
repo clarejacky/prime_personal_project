@@ -8,7 +8,7 @@
 <body>
 <div class="container" ng-controller="LocationsController">
     <h1>buffed<span class="minneapolis">Minneapolis / St. Paul</span></h1>
-    <div class="navigation">
+    <div class="nav">
         <ul class="nav nav-tabs">
             <li role="presentation" ng-click="add()"><a href="#locations">Locations</a></li>
             <li role="presentation" class="active" class="dropdown" dropdown><a href="#" class="dropdown-toggle" dropdown-toggle data-toggle='dropdown' role="button">Search by<span class="caret"></span></a>
@@ -25,14 +25,15 @@
             <li role="presentation"><a href="#resources">Resources</a></li>
             <li role="presentation"><a href="#about">About</a></li>
             <li role="presentation"><a href="#admin">Admin</a></li>
-
+            <input id="search" ng-model="location.name" type="text" placeholder="Search by Name" class="searchbox">
+            <input type="submit" ng-click="search(location.name)" class="btn">
         </ul>
     </div>
     <main ng-view>
     </main>
 </div>
 <script type="text/javascript" src="/vendor/angular/angular.min.js"></script>
-<script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>-->
 <script type="text/javascript" src="/vendor/angular-bootstrap/dist/ui-bootstrap.min.js"></script>
 <script type="text/javascript" src="/vendor/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="/javascripts/app.min.js"></script>

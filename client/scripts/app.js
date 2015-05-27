@@ -62,4 +62,21 @@ app.controller('LocationsController', ['$scope', '$http', function($scope, $http
             return response.data;
         })
     };
+
+    $scope.search = function(name){
+        console.log(name);
+        $http({
+            url:'/locations/search',
+            method: "GET",
+            params: {name: name}
+        }).then(function(response){
+            if(response.status !== 200){
+                throw new Error('Failed to fetch locations from the API');
+            }
+            $scope.location={};
+            $scope.locations=response.data;
+            console.log(response.data);
+            return response.data;
+        })
+    };
 }]);

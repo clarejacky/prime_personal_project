@@ -18,6 +18,7 @@ router.post('/', function(req, res, next){
 });
 
 router.get('/search', function(req, res, next){
+  console.log(req.query);
   Location.find(req.query,function (err, locations) {
         if (err) return next(err);
         res.json(locations);
