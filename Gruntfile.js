@@ -74,7 +74,8 @@ module.exports = function(grunt) {
                     "location.html",
                     "locations.html",
                     "admin.html",
-                    "about.html"
+                    "about.html",
+                    "input.html"
                 ],
                 "dest": "public/views/routes/"
             }

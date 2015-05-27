@@ -6,7 +6,10 @@ var passport = require('passport');
 
 
 router.get("/", function(req,res,next){
-    if(req.isAuthenticated()){
-        res.sendFile(path.resolve(__dirname, '../views/input.html'));
-    }
+    console.log("getting here");
+    //if(req.isAuthenticated()){
+        res.sendFile(path.resolve(__dirname, '../views/routes/input.html'));
+    //}
 });
+
+module.exports = router;

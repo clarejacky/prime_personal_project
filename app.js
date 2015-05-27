@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var session = require('express-session');
+var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
 var Admin = require('./models/admin');
 
@@ -73,7 +74,7 @@ passport.use('local', new localStrategy({
 
 app.use('/', routes);
 app.use('/locations', locations);
-//app.use('/admin', admin);
+app.use('/admin', admin);
 
 var mongoURI = "mongodb://localhost:27017/locations";
 var MongoDB = mongoose.connect(mongoURI).connection;

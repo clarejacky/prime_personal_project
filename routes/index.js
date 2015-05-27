@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var path = require('path');
+var Admin = require('../models/admin');
+
 
 
 /* GET home page. */
@@ -11,8 +13,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/',
     passport.authenticate('local', {
-      successRedirect: '/admin',
-      failureRedirect: '/'
+        successRedirect: '/admin',
+        failureRedirect: '/'
     })
 );
 
