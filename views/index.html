@@ -13,13 +13,13 @@
             <li role="presentation" ng-click="add()"><a href="#locations">Locations</a></li>
             <li role="presentation" class="active" class="dropdown" dropdown><a href="#" class="dropdown-toggle" dropdown-toggle data-toggle='dropdown' role="button">Search by<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Yoga</a></li>
-                    <li><a href="#">Barre Studio</a></li>
-                    <li><a href="#">Pilates</a></li>
-                    <li><a href="#">HIIT</a></li>
-                    <li><a href="#">Crossfit</a></li>
+                    <li ng-click="filter(yoga)"><a href="#yoga">Yoga</a></li>
+                    <li ng-click="filter(barre)"><a href="#">Barre Studio</a></li>
+                    <li ng-click="filter(pilates)"><a href="#">Pilates</a></li>
+                    <li ng-click="filter(hiit)"><a href="#">HIIT</a></li>
+                    <li ng-click="filter(crossfit)"><a href="#">Crossfit</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">General Fitness Gym</a></li>
+                    <li ng-click="filter(general)"><a href="#">General Fitness Gym</a></li>
                 </ul>
            </li>
             <li role="presentation"><a href="#resources">Resources</a></li>
