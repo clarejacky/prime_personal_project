@@ -1,12 +1,15 @@
 /**
  * Created by ClareJacky on 5/26/15.
  */
-var app = angular.module('app', ['ngRoute', 'ui.bootstrap']);
+var app = angular.module('app', ['ngRoute', 'ui.bootstrap', 'appControllers']);
+
+var appControllers = angular.module('appControllers', []);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
         when('/admin', {
-            templateUrl: "/views/routes/admin.html"
+            templateUrl: "/views/routes/admin.html",
+            controller: 'RegistrationController'
         }).
         when('/about', {
             templateUrl: "/views/routes/about.html"
