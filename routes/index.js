@@ -1,14 +1,19 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 var path = require('path');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, "../views/index.html"));
 });
 
-//router.post('/', function(req, res, next){
-//
-//});
+router.post('/',
+    passport.authenticate('local', {
+      successRedirect: '/admin',
+      failureRedirect: '/'
+    })
+);
 
 module.exports = router;
