@@ -9,7 +9,13 @@ app.controller('RegistrationController',['$scope','$http', '$location',  functio
 
     $scope.adminSubmit = function(admin){
         console.log(admin);
-            return $http.post('/admin', admin);
+        $http.post('/admin', admin).then(function(response){
+            if(response.status === 200){
+                console.log("this did something");
+                $scope.go('/input');
+            }
+        })
+
     }
 
 

@@ -30,12 +30,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // If user is unauthorized, they cannot access private folder
-app.use(function(req, res, next){
-  if (!req.isAuthenticated())
-    return next();
-  else
-    express.static(path.join(__dirname, 'private'));
-});
+//app.use(function(req, res, next){
+//  if (!req.isAuthenticated())
+//    return next();
+//  else
+//    express.static(path.join(__dirname, 'private'));
+//});
 
 app.use(session({
   secret: 'secret',
