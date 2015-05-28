@@ -7,8 +7,12 @@ var appControllers = angular.module('appControllers', []);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
-        when('/admin', {
+        when('/adminPage', {
             templateUrl: "/views/routes/admin.html",
+            controller: 'RegistrationController'
+        }).
+        when('/input', {
+            templateUrl: "/views/routes/input.html",
             controller: 'RegistrationController'
         }).
         when('/about', {

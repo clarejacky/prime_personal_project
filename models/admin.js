@@ -18,7 +18,7 @@ adminSchema.pre('save', function(next){
     bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
         if(err) return next(err);
 
-        becrypt.hash(admin.password, salt, function(err, hash){
+        bcrypt.hash(admin.password, salt, function(err, hash){
             if(err) return next (err);
             admin.password = hash;
             next();
@@ -33,4 +33,4 @@ adminSchema.methods.comparePassword = function(candidatePassword, cb){
     });
 };
 //creates a prototype function, can then call user.comparePassword, candidatepassword is their password
-module.exports= mongoose.model('Admin', adminSchema);
+module.exports = mongoose.model('Admin', adminSchema);

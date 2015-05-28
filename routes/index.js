@@ -11,11 +11,13 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, "../views/index.html"));
 });
 
-router.post('/',
-    passport.authenticate('local', {
-        successRedirect: '/admin',
-        failureRedirect: '/'
-    })
-);
+router.post('/', function(req, res, next){
+  Admin.create(req.body, function(err, post){
+    res.json(post);
+    console.log(post);
+  })
+});
 
 module.exports = router;
+
+

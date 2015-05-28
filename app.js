@@ -51,7 +51,7 @@ passport.deserializeUser(function(id, done){
     if (err) done(err);
     done(null, user);
   })
-})
+});
 //
 passport.use('local', new localStrategy({
       passReqToCallback: true,
@@ -59,14 +59,28 @@ passport.use('local', new localStrategy({
     },
     function(req, username, password, done){
       Admin.findOne({username: username}, function(err, user){
-        if (err) throw err;
-        if(!user)
+        if (err) {
+          console.log(err);
+          next(err);
+        }
+        if(!user) {
+          console.log("User not found");
           return done(null, false, {message: 'Incorrect username or password'});
+        }
         user.comparePassword(password, function(err, isMatch){
-          if(err) throw err;
-          if(isMatch) return done(null, user);
+          if (err) {
+            console.log(err);
+            next(err);
+          }
+          if(isMatch){
+            console.log("User found, correct match");
+            return done(null, user);
+          }
           //will run local version of passport - here is the user we found
-          else done(null, false, {message: 'Incorrect username or password'});
+          else {
+            console.log("Incorrect username or password");
+            done(null, false, {message: 'Incorrect username or password'});
+          }
         })
       })
     }
