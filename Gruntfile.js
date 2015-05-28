@@ -26,6 +26,15 @@ module.exports = function(grunt) {
                 ],
                 "dest": "public/vendor/"
             },
+            angularResource: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "angular-resource/angular-resource.min.js",
+                    "angular-resource/angular-resource.min.js.map"
+                ],
+                "dest": "public/vendor/"
+            },
             angularRoute: {
                 expand: true,
                 cwd: "node_modules/",

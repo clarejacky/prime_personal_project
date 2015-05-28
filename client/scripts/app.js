@@ -1,11 +1,12 @@
 /**
  * Created by ClareJacky on 5/26/15.
  */
-var app = angular.module('app', ['ngRoute', 'ui.bootstrap', 'appControllers']);
+var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap', 'appControllers']);
 
 var appControllers = angular.module('appControllers', []);
 
-app.config(['$routeProvider', function($routeProvider){
+app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProvider){
+
     $routeProvider.
         when('/adminPage', {
             templateUrl: "/views/routes/admin.html",
@@ -24,6 +25,23 @@ app.config(['$routeProvider', function($routeProvider){
         otherwise({
             redirectTo: '/home'
         });
+
+    $httpProvider.interceptors.push(['$location', '$q', function($location, $q) {
+        return {
+            response: function(response) {
+                console.log(response);
+                // do something on success
+                return response;
+            },
+            responseError: function(response) {
+                console.log("404 error");
+                if (response.status === 401)
+                    $location.url('/adminPage');
+                return $q.reject(response);
+            }
+        };
+    }]);
+    // alternatively, register the interceptor via an anonymous factory
 }]);
 
 app.controller('LocationsController', ['$scope', '$http', function($scope, $http){
