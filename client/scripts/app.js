@@ -13,7 +13,7 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
             controller: 'RegistrationController'
         }).
         when('/input', {
-            templateUrl: "/views/routes/input.html",
+            templateUrl: "/private/input.html",
             controller: 'RegistrationController'
         }).
         when('/about', {

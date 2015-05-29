@@ -28,13 +28,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// If user is unauthorized, they cannot access private folder
-//app.use(function(req, res, next){
-//  if (!req.isAuthenticated())
-//    return next();
+ //If user is unauthorized, they cannot access private folder
+//app.use(function(username){
+//  if (!username){
+//    express.static(path.join(__dirname, 'public'));
+//  }
 //  else
 //    express.static(path.join(__dirname, 'private'));
+//    express.static(path.join(__dirname, 'public'));
 //});
 
 app.use(session({
