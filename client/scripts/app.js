@@ -1,7 +1,7 @@
 /**
  * Created by ClareJacky on 5/26/15.
  */
-var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap', 'appControllers']);
+var app = angular.module('app', ['ngRoute', 'ngMap', 'ngResource', 'ui.bootstrap', 'appControllers']);
 
 var appControllers = angular.module('appControllers', []);
 
@@ -21,6 +21,10 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
         }).
         when('/locations', {
             templateUrl: "/views/routes/locations.html"
+        }).
+        when('/location', {
+            templateUrl: "/views/routes/location.html",
+            //controller: "PagesController"
         }).
         otherwise({
             redirectTo: '/'
@@ -49,7 +53,7 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
     // alternatively, register the interceptor via an anonymous factory
 }]);
 
-app.controller('LocationsController', ['$scope', '$http', function($scope, $http){
+app.controller('LocationsController', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.location ={};
     $scope.locations =[];
 
@@ -94,6 +98,7 @@ app.controller('LocationsController', ['$scope', '$http', function($scope, $http
     };
 
     $scope.search = function(name){
+        $location.url('/locations');
         console.log(name);
         $http({
             url:'/locations/search',
@@ -109,4 +114,23 @@ app.controller('LocationsController', ['$scope', '$http', function($scope, $http
             return response.data;
         })
     };
+
+    $scope.searchLocation = function(name){
+        console.log(name);
+        $http({
+            url:'/locations/search',
+            method: "GET",
+            params: {name: name}
+        }).then(function(response){
+            if(response.status !== 200){
+                throw new Error('Failed to fetch locations from the API');
+            }
+            $scope.location={};
+            $scope.locations=response.data;
+            console.log(response.data);
+            return response.data;
+        })
+    };
+
+
 }]);
