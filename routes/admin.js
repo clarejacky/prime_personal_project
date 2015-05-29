@@ -15,8 +15,16 @@ var passport = require('passport');
 
 router.post('/',
     passport.authenticate('local'), function(req,res, next){
-        console.log(req.user);
         res.send(req.user);
-    });
+});
+
+
+//if(req.isAuthenticated()){
+//    res.sendFile(path.resolve(__dirname, '../views/input.html'));
+//    console.log('file sent');
+//} else {
+//    res.send(req.user);
+//}
 
 module.exports = router;
+

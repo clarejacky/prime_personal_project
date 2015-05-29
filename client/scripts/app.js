@@ -5,7 +5,7 @@ var app = angular.module('app', ['ngRoute', 'ngMap', 'ngResource', 'ui.bootstrap
 
 var appControllers = angular.module('appControllers', []);
 
-app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProvider){
+app.config(['$routeProvider','$httpProvider', '$locationProvider', function($routeProvider, $httpProvider, $locationProvider){
 
     $routeProvider.
         when('/adminPage', {
@@ -13,7 +13,7 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
             controller: 'RegistrationController'
         }).
         when('/input', {
-            templateUrl: "/private/input.html",
+            templateUrl: "/views/routes/input.html",
             controller: 'RegistrationController'
         }).
         when('/about', {
@@ -23,16 +23,18 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
             templateUrl: "/views/routes/locations.html"
         }).
         when('/location', {
-            templateUrl: "/views/routes/location.html",
-            //controller: "PagesController"
+            templateUrl: "/views/routes/location.html"
+            //controller: "MapController"
         }).
         otherwise({
             redirectTo: '/'
         });
 
+
     $httpProvider.interceptors.push(['$location', '$q', function($location, $q) {
         return {
             response: function(response) {
+                console.log(response);
                 if (response.status === 200){
                     console.log("we made it inside of here");
                     return response;
@@ -52,6 +54,7 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
     }]);
     // alternatively, register the interceptor via an anonymous factory
 }]);
+
 
 app.controller('LocationsController', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.location ={};
@@ -131,6 +134,8 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             return response.data;
         })
     };
+
+
 
 
 }]);
