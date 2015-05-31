@@ -1,5 +1,4 @@
-//app.controller('MapController', function($scope) {
-//
-//    $scope.location = "[44.922102, -93.282199]";
-//    $scope.marker = "[44.922102, -93.282199]";
-//});
+app.controller('MapController', function($scope) {
+$scope.HTML = "<map zoom='11' center='[40.74, -74.18]'><marker position='[40.74, -74.18]' /><control name='overviewMap'opened='true' /></map>"
+
+});

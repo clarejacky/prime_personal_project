@@ -39,6 +39,23 @@ module.exports = function(grunt) {
                 ],
                 "dest": "public/vendor/"
             },
+            angularGooglemaps: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "ngmap/build/scripts/ng-map.min.js"
+                ],
+                "dest": "public/vendor/"
+            },
+            angularSanitize: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "angular-sanitize/angular-sanitize.min.js",
+                    "angular-sanitize/angular-sanitize.min.js.map"
+                ],
+                "dest": "public/vendor/"
+            },
             angularRoute: {
                 expand: true,
                 cwd: "node_modules/",

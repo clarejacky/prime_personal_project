@@ -1,7 +1,7 @@
 /**
  * Created by ClareJacky on 5/26/15.
  */
-var app = angular.module('app', ['ngRoute', 'ngMap', 'ngResource', 'ui.bootstrap', 'appControllers']);
+var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap', 'appControllers', 'ngMap', 'ngSanitize']);
 
 var appControllers = angular.module('appControllers', []);
 
@@ -24,7 +24,6 @@ app.config(['$routeProvider','$httpProvider', '$locationProvider', function($rou
         }).
         when('/location', {
             templateUrl: "/views/routes/location.html"
-            //controller: "MapController"
         }).
         otherwise({
             redirectTo: '/'
@@ -56,7 +55,7 @@ app.config(['$routeProvider','$httpProvider', '$locationProvider', function($rou
 }]);
 
 
-app.controller('LocationsController', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('LocationsController', ['$scope', '$http', '$location', '$sce', '$sanitize', function($scope, $http, $location, $sce, $sanitize){
     $scope.location ={};
     $scope.locations =[];
 
@@ -135,7 +134,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
         })
     };
 
-
+    $scope.mapHtml = $sce.trustAsHtml("<div class='mapInsert'><map zoom='11' center='[40.74, -74.18]'><marker position='[40.74, -74.18]' /><control name='overviewMap'opened='true' /></map></div>");
 
 
 }]);
