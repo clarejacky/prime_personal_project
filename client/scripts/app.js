@@ -73,6 +73,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', '$sce', '
     };
 
     $scope.add = function(){
+        $scope.image = true;
         fetchLocations();
     }
 
@@ -83,6 +84,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', '$sce', '
     $scope.crossfit ='Crossfit';
     $scope.general = 'General Fitness';
     $scope.filter = function(fitnessType){
+        $scope.image = true;
         console.log(fitnessType);
         $http({
             url:'/locations/search',
@@ -100,6 +102,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', '$sce', '
     };
 
     $scope.search = function(name){
+        $scope.image = true;
         $location.url('/locations');
         console.log(name);
         $http({
@@ -118,6 +121,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', '$sce', '
     };
 
     $scope.searchLocation = function(name){
+        $scope.image = true;
         console.log(name);
         $http({
             url:'/locations/search',

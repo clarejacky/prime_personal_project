@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-<div class="container" ng-controller="LocationsController">
+<header class="container" ng-controller="LocationsController">
     <h1>buffed<span class="minneapolis">Minneapolis / St. Paul</span></h1>
-    <div class="nav">
+    <header class="nav">
         <ul class="nav nav-tabs">
             <li role="presentation" ng-click="add()"><a href="#locations">Locations</a></li>
             <li role="presentation" class="active" class="dropdown" dropdown><a href="#" class="dropdown-toggle" dropdown-toggle data-toggle='dropdown' role="button">Search by<span class="caret"></span></a>
@@ -29,10 +29,15 @@
             <input id="search" ng-model="location.name" type="text" placeholder="Search by Name" class="searchbox">
             <input type="submit" ng-click="search(location.name)" class="btn">
         </ul>
+    </header>
+
+    <div>
+        <img ng-hide='image' src="http://www.aquasportslloret.cat/wp-content/uploads/2014/09/Cinta-para-running-Flickr-Creative-Commons-Farhad-sh-Mahidoodi-1024x518.jpg">
     </div>
     <main ng-view>
     </main>
-</div>
+    <footer>Copyright 2015</footer>
+</header>
 <script type="text/javascript" src="/vendor/angular/angular.min.js"></script>
 <script type="text/javascript" src="/vendor/angular-bootstrap/dist/ui-bootstrap.min.js"></script>
 <script type="text/javascript" src="/vendor/angular-route/angular-route.min.js"></script>
