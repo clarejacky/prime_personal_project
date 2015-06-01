@@ -5,14 +5,10 @@
     <p><a href="">{{location.website}}</a></p>
     <p>{{location.address}}</p>
     <p>{{location.description}}</p>
-
+    <!--<button class="btn" ng-click="showMap()">More Info</button>-->
 </div>
 
-<div class='myMap'>
-    <map zoom="11" ng-attr-center="{{mapCenter}}">
-        <marker ng-attr-position="{{mapCenter}}" />
-        <!--<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />-->
-        <control name="overviewMap" opened="true" />
-    </map>
+<div class='myMap' ng-show="map">
+    <map class='col-xs-12' style='height: 150px;' zoom='11' ng-attr-center='{{el}}'><marker ng-attr-position='{{el}}'/><control name='overviewMap' opened='true' /></map>
 </div>
 

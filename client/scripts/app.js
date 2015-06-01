@@ -128,10 +128,10 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
     };
 
     //
-  var el;
+$scope.el;
 
     $scope.searchLocation = function(name){
-        $scope.go('/location');
+        //$scope.go('/location');
         console.log(name);
         $http({
             url:'/locations/search',
@@ -144,14 +144,19 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             $scope.location={};
             $scope.locations=response.data;
             console.log(response.data[0].coordinates);
-            el = response.data[0].coordinates;
-            console.log(el);
-            //return response.data;
+            $scope.el = response.data[0].coordinates;
+            console.log($scope.el);
+
+        }).then(function(response){
+            $scope.go('/location');
         })
+
     };
 
-    $scope.mapCenter = el;
-    $scope.markerCenter = el;
+  //$scope.showMap = function(){
+  //    //$scope.el = response.data[0].coordinates;
+  //    $scope.map = true;
+  //}
 
     //$scope.mapCenter = $scope.locations[0].coordinates;
     //$scope.markerCenter = $scope.locations[0].coordinates;
