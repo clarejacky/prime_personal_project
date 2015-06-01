@@ -57,6 +57,7 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
 }]);
 
 
+
 app.controller('LocationsController', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.location ={};
     $scope.locations =[];
@@ -65,6 +66,9 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
         $location.path( path );
     };
 
+    $scope.reloadRoute = function() {
+       $scope.go('/');
+    }
 
     var fetchLocations = function(){
         console.log("click worked");
