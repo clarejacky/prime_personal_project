@@ -21,6 +21,9 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
         when('/about', {
             templateUrl: "/views/routes/about.html"
         }).
+        when('/comingsoon', {
+            templateUrl: "/views/routes/comingsoon.html"
+        }).
         when('/locations', {
             templateUrl: "/views/routes/locations.html"
         }).
@@ -87,7 +90,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
     };
 
     $scope.add = function(){
-        $scope.image = true;
+        $scope.locationClick = true;
         fetchLocations();
     }
 
@@ -98,7 +101,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
     $scope.crossfit ='Crossfit';
     $scope.general = 'General Fitness';
     $scope.filter = function(fitnessType){
-        $scope.image = true;
+        $scope.locationClick = true;
         console.log(fitnessType);
         $http({
             url:'/locations/search',
@@ -107,16 +110,19 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
         }).then(function(response){
             if(response.status !== 200){
                 throw new Error('Failed to fetch locations from the API');
+            } else {
+                $scope.location={};
+                $scope.locations=response.data;
+                console.log(response.data);
+                if (response.data[0] == null) {
+                    $scope.go('/comingsoon');
+                }
             }
-            $scope.location={};
-            $scope.locations=response.data;
-            console.log(response.data);
-            return response.data;
         })
     };
 
     $scope.search = function(name){
-        $scope.image = true;
+        $scope.locationClick = true;
         $location.url('/locations');
         console.log(name);
         $http({
@@ -138,7 +144,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
 $scope.el;
 
     $scope.searchLocation = function(name){
-        //$scope.go('/location');
+        $scope.locationClick = true;
         console.log(name);
         $http({
             url:'/locations/search',
@@ -159,13 +165,5 @@ $scope.el;
         })
 
     };
-
-  //$scope.showMap = function(){
-  //    //$scope.el = response.data[0].coordinates;
-  //    $scope.map = true;
-  //}
-
-    //$scope.mapCenter = $scope.locations[0].coordinates;
-    //$scope.markerCenter = $scope.locations[0].coordinates;
 
 }]);

@@ -32,11 +32,15 @@ form textarea {
 }
 .searchBox {
     float: right;
-    margin: 10px 10px;
+    margin: 10px 0;
 }
-.searchBox input .btn {
+.searchBox .btn {
     height: 100%;
-    width: 150%;
+    width: 100%
+    margin-left: 20px;
+}
+.searchBox .searchbox {
+    height: 100%;
 }
 .locations h3 {
     text-align: center;

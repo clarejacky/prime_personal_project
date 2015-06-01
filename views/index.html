@@ -27,11 +27,11 @@
             <li role="presentation"><a href="#resources">Resources</a></li>
             <li role="presentation"><a href="#about">About</a></li>
             <li role="presentation"><a href="#adminPage">Admin</a></li>
+            <div class="searchBox">
+                <input id="search" ng-model="location.name" type="text" placeholder="Search by Name" class="searchbox">
+                <input type="submit" ng-click="search(location.name)" class="btn">
+            </div>
         </ul>
-        <div class="searchBox">
-            <input id="search" ng-model="location.name" type="text" placeholder="Search by Name" class="searchbox">
-            <input type="submit" ng-click="search(location.name)" class="btn">
-        </div>
     </div>
     <header ng-click="reloadRoute()">
         <h1>buffed<br><span class="minneapolis">mpls | stpl</span></h1>

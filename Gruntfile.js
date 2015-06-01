@@ -115,7 +115,8 @@ module.exports = function(grunt) {
                     "admin.html",
                     "about.html",
                     "input.html",
-                    "home.html"
+                    "home.html",
+                    "comingsoon.html"
                 ],
                 "dest": "public/views/routes/"
             }
