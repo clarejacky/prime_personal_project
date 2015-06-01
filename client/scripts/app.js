@@ -160,8 +160,9 @@ $scope.el;
             $scope.el = response.data[0].coordinates;
             console.log($scope.el);
 
-        }).then(function(response){
+        }).then(function(){
             $scope.go('/location');
+            $scope.map = true;
         })
 
     };

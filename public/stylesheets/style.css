@@ -3,7 +3,7 @@ body {
 }
 h1 {
     font-weight: 900;
-    font-size: 40px;
+    font-size: 50px;
 }
 .minneapolis {
     font-weight: 300;
@@ -42,6 +42,6 @@ form textarea {
 .searchBox .searchbox {
     height: 100%;
 }
-.locations h3 {
+.locations h3, .locations h4 {
     text-align: center;
 }
