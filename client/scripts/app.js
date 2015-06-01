@@ -7,7 +7,7 @@ var appControllers = angular.module('appControllers', []);
 
 //app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
 
-app.config(['$routeProvider','$httpProvider', '$locationProvider', function($routeProvider, $httpProvider, $locationProvider){
+app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProvider){
 
     $routeProvider.
         when('/adminPage', {
@@ -60,6 +60,11 @@ app.config(['$routeProvider','$httpProvider', '$locationProvider', function($rou
 app.controller('LocationsController', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.location ={};
     $scope.locations =[];
+
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
+
 
     var fetchLocations = function(){
         console.log("click worked");
@@ -122,8 +127,11 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
         })
     };
 
+    //
+  var el;
+
     $scope.searchLocation = function(name){
-        $scope.image = true;
+        $scope.go('/location');
         console.log(name);
         $http({
             url:'/locations/search',
@@ -135,13 +143,17 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             }
             $scope.location={};
             $scope.locations=response.data;
-            console.log(response.data);
-            return response.data;
+            console.log(response.data[0].coordinates);
+            el = response.data[0].coordinates;
+            console.log(el);
+            //return response.data;
         })
     };
 
-    $scope.mapCenter = [40.74, -74.18];
-    $scope.markerCenter = [40.74, -74.18];
+    $scope.mapCenter = el;
+    $scope.markerCenter = el;
 
+    //$scope.mapCenter = $scope.locations[0].coordinates;
+    //$scope.markerCenter = $scope.locations[0].coordinates;
 
 }]);

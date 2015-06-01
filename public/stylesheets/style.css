@@ -1,15 +1,20 @@
-/*.myMap {*/
-    /*height: 100px;*/
-    /*width: 200px;*/
-/*}*/
-/*map {*/
-    /*height: 80px;*/
-    /*width: 180px;*/
-/*}*/
 img {
     margin: 20px 0;
     width: 100%;
 }
-/*header h1 {*/
-    /*margin:*/
-/*}*/
+ form input {
+    float: right;
+    margin-top: 20px;
+     clear: both;
+}
+form label {
+    /*float: left;*/
+    margin-top:20px;
+    clear: both;
+    /*width: 100%;*/
+}
+form textarea {
+    float: right;
+    margin-top: 20px;
+    clear: both;
+}

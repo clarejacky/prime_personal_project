@@ -1,16 +1,18 @@
 <div ng-repeat="location in locations">
     <h3>{{location.name}}</h3>
 
-    <p>{{location.fitnessType}}</p>
-    <!--<p>{{location.address}}</p>-->
-    <!--<p>{{location.hours}}</p>-->
-    <!--<p>{{location.mission}}</p>-->
+    <p>Specializes in {{location.fitnessType}}</p>
+    <p><a href="">{{location.website}}</a></p>
+    <p>{{location.address}}</p>
+    <p>{{location.description}}</p>
 
 </div>
+
 <div class='myMap'>
     <map zoom="11" ng-attr-center="{{mapCenter}}">
-        <marker ng-attr-position="{{markerCenter}}" />
+        <marker ng-attr-position="{{mapCenter}}" />
         <!--<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />-->
         <control name="overviewMap" opened="true" />
     </map>
 </div>
+

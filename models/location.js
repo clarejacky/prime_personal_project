@@ -8,9 +8,9 @@ var LocationSchema = new Schema({
     name: { type: String, required: true },
     fitnessType: { type: String, required: true },
     website: String,
-    hours: String,
     address: String,
-    mission: String
+    coordinates: String,
+    description: String
 
 });
 //if address is not inputed cannot make google map
