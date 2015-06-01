@@ -7,8 +7,12 @@
     <!--<p>{{location.mission}}</p>-->
 
 </div>
-<div class='myMap' ng-bind-html="mapHtml">
-
+<div class='myMap'>
+    <map zoom="11" ng-attr-center="{{mapCenter}}">
+        <marker ng-attr-position="{{markerCenter}}" />
+        <!--<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />-->
+        <control name="overviewMap" opened="true" />
+    </map>
 </div>
 <!--<google-map center="{latitude: 30, longitude: -120}" zoom="12"></google-map>-->
 
@@ -17,10 +21,7 @@
         <!--<marker position="[44.922102, -93.282199]"></marker>-->
     <!--</map>-->
 <!--</div>-->
+<!--ng-bind-html="mapHtml"-->
 
-<!--<map zoom="11" center="[40.74, -74.18]">-->
-    <!--<marker position="[40.74, -74.18]" />-->
-    <!--&lt;!&ndash;<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />&ndash;&gt;-->
-    <!--<control name="overviewMap" opened="true" />-->
-<!--</map>`-->
+
 <!--[40.74, -74.18]-->
