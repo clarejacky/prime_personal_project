@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway: 900, 300' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
 <div class="container" ng-controller="LocationsController">
-    <header ng-click="reloadRoute()">
-        <h1>buffed<span class="minneapolis">Minneapolis / St. Paul</span></h1>
-    </header>
-
     <div class="nav">
         <ul class="nav nav-tabs">
             <li role="presentation" ng-click="add()"><a href="#locations">Locations</a></li>
@@ -29,14 +27,16 @@
             <li role="presentation"><a href="#resources">Resources</a></li>
             <li role="presentation"><a href="#about">About</a></li>
             <li role="presentation"><a href="#adminPage">Admin</a></li>
+        </ul>
+        <div class="searchBox">
             <input id="search" ng-model="location.name" type="text" placeholder="Search by Name" class="searchbox">
             <input type="submit" ng-click="search(location.name)" class="btn">
-        </ul>
+        </div>
     </div>
+    <header ng-click="reloadRoute()">
+        <h1>buffed<br><span class="minneapolis">mpls | stpl</span></h1>
 
-    <div>
-        <!--<img ng-show='image' src="http://www.aquasportslloret.cat/wp-content/uploads/2014/09/Cinta-para-running-Flickr-Creative-Commons-Farhad-sh-Mahidoodi-1024x518.jpg">-->
-    </div>
+    </header>
     <main ng-view>
 
     </main>

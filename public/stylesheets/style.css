@@ -1,3 +1,15 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+h1 {
+    font-weight: 900;
+    font-size: 40px;
+}
+.minneapolis {
+    font-weight: 300;
+    font-size: 30px;
+}
+
 img {
     margin: 20px 0;
     width: 100%;
@@ -18,11 +30,14 @@ form textarea {
     margin-top: 20px;
     clear: both;
 }
-
-/*.myMap {*/
-    /*height: 100px;*/
-    /*width: 250px;*/
-/*}*/
-/*map {*/
-    /*display: inline-block;*/
-/*}*/
+.searchBox {
+    float: right;
+    margin: 10px 10px;
+}
+.searchBox input .btn {
+    height: 100%;
+    width: 150%;
+}
+.locations h3 {
+    text-align: center;
+}

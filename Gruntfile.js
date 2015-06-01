@@ -94,7 +94,7 @@ module.exports = function(grunt) {
                 cwd: "node_modules/",
                 src: [
                     "jquery/dist/jquery.min.js",
-                    "jquery/dist/jquery.min.js.map"
+                    "jquery/dist/jquery.min.map"
                 ],
                 "dest": "public/vendor/"
             },
@@ -114,7 +114,8 @@ module.exports = function(grunt) {
                     "locations.html",
                     "admin.html",
                     "about.html",
-                    "input.html"
+                    "input.html",
+                    "home.html"
                 ],
                 "dest": "public/views/routes/"
             }
