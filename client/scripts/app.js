@@ -39,28 +39,28 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
         });
 
 
-
-    $httpProvider.interceptors.push(['$location', '$q', function($location, $q) {
-        return {
-            response: function(response) {
-                console.log(response);
-                if (response.status === 200){
-                    console.log("we made it inside of here");
-                    return response;
-                }
-
-                //return response;
-            },
-            responseError: function(response) {
-                console.log("404 error");
-                if (response.status === 401) {
-                    alert("Incorrect Username or Password")
-                    //$location.url('/adminPage');
-                    return $q.reject(response);
-                }
-            }
-        };
-    }]);
+    //
+    //$httpProvider.interceptors.push(['$location', '$q', function($location, $q) {
+    //    return {
+    //        response: function(response) {
+    //            console.log(response);
+    //            if (response.status === 200){
+    //                console.log("we made it inside of here");
+    //                return response;
+    //            }
+    //
+    //            //return response;
+    //        },
+    //        responseError: function(response) {
+    //            console.log("404 error");
+    //            if (response.status === 401) {
+    //                alert("Incorrect Username or Password")
+    //                //$location.url('/adminPage');
+    //                return $q.reject(response);
+    //            }
+    //        }
+    //    };
+    //}]);
     // alternatively, register the interceptor via an anonymous factory
 }]);
 
@@ -175,6 +175,9 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
     //if($scope.locations == []){
     //    $scope.go('/locations');
     //}
+    $scope.showInput = function() {
+        $scope.show = true;
+    }
 
 
 }]);

@@ -14,6 +14,7 @@ var Admin = require('./models/admin');
 var routes = require('./routes/index');
 var locations = require('./routes/locations');
 var admin = require('./routes/admin');
+var sendAdmin = require("./routes/sendAdmin")
 
 var app = express();
 
@@ -98,6 +99,7 @@ passport.use('local', new localStrategy({
 app.use('/', routes);
 app.use('/locations', locations);
 app.use('/admin', admin);
+app.use('/sendAdmin', sendAdmin);
 
 var mongoURI = "mongodb://localhost:27017/locations";
 var MongoDB = mongoose.connect(mongoURI).connection;

@@ -8,12 +8,9 @@ app.controller('RegistrationController',['$scope','$http', '$location', function
 
 
     $scope.adminSubmit = function(admin){
-        $scope.image = true;
-
-        console.log(admin);
-       $scope.go('/input');
-
-
+        $http.post('/admin', admin).then(function(response){
+            console.log(response);
+        })
     };
 
     $scope.locationSubmit = function(location){
