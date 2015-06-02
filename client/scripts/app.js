@@ -168,4 +168,13 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
 
     };
 
+    $scope.locationPage = function(){
+        $scope.go('/locations');
+    };
+
+    //if($scope.locations == []){
+    //    $scope.go('/locations');
+    //}
+
+
 }]);

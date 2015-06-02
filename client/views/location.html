@@ -1,4 +1,5 @@
-<div ng-repeat="location in locations">
+<h4 ng-click='locationPage()' ng-hide="locationClick">Click to See Locations</h4>
+<div ng-show="locationClick" ng-repeat="location in locations">
     <h3>{{location.name}}</h3>
 
     <p>Specializes in {{location.fitnessType}}</p>
@@ -7,7 +8,7 @@
     <p>{{location.description}}</p>
 </div>
 
-<div ng-show='map' class='myMap'>
+<div class='myMap' ng-show="locationClick">
     <map zoom='15' ng-attr-center='{{el}}'><marker ng-attr-position='{{el}}'/><control name='overviewMap' opened='true' /></map>
 </div>
 
