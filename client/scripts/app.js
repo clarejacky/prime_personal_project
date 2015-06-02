@@ -163,9 +163,9 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
 
         }).then(function(){
             $scope.go('/location');
-            $scope.map = true;
         })
-
+        $scope.locationClick = true;
+        $scope.locationMap = true;
     };
 
     $scope.locationPage = function(){
