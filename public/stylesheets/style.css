@@ -45,3 +45,8 @@ form textarea {
 .locations h3, .locations h4 {
     text-align: center;
 }
+form .admin input {
+}
+form .admin label {
+    /*width: 100%;*/
+}

@@ -1,6 +1,6 @@
 <div class="container locations">
     <h3>Twin Cities Locations</h3>
-    <h4 ng-click='add()' ng-hide="locationClick">Click to See Locations</h4>
+    <!--<h4 ng-click='add()' ng-hide="locationClick">Click to See Locations</h4>-->
 
     <div ng-repeat="location in locations | orderBy: 'name'" class="row">
         <h5 ng-click="searchLocation(location.name)"><a href="">{{location.name}}</a></h5>

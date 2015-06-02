@@ -74,6 +74,14 @@ module.exports = function(grunt) {
                 ],
                 "dest": "public/vendor/"
             },
+            angularStorage: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "angular-local-storage/dist/angular-local-storage.min.js"
+                ],
+                "dest": "public/vendor/"
+            },
             bootstrap: {
                 expand: true,
                 cwd: "node_modules",
@@ -116,7 +124,8 @@ module.exports = function(grunt) {
                     "about.html",
                     "input.html",
                     "home.html",
-                    "comingsoon.html"
+                    "comingsoon.html",
+                    "locationsFilter.html"
                 ],
                 "dest": "public/views/routes/"
             }

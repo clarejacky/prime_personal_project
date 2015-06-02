@@ -5,8 +5,6 @@ var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap', 'appCo
 
 var appControllers = angular.module('appControllers', []);
 
-//app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
-
 app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProvider){
 
     $routeProvider.
@@ -27,6 +25,9 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
         when('/locations', {
             templateUrl: "/views/routes/locations.html"
         }).
+        when('/locationsFilter', {
+            templateUrl: "/views/routes/locationsFilter.html"
+        }).
         when('/location', {
             templateUrl: "/views/routes/location.html"
         }).
@@ -36,6 +37,7 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
         otherwise({
             redirectTo: '/'
         });
+
 
 
     $httpProvider.interceptors.push(['$location', '$q', function($location, $q) {
@@ -62,8 +64,6 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
     // alternatively, register the interceptor via an anonymous factory
 }]);
 
-
-
 app.controller('LocationsController', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.location ={};
     $scope.locations =[];
@@ -73,7 +73,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
     };
 
     $scope.reloadRoute = function() {
-       $scope.go('/');
+        $scope.go('/');
     }
 
     var fetchLocations = function(){
@@ -88,6 +88,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             return response.data;
         })
     };
+    fetchLocations();
 
     $scope.add = function(){
         $scope.locationClick = true;
@@ -141,7 +142,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
     };
 
     //
-$scope.el;
+    $scope.el;
 
     $scope.searchLocation = function(name){
         $scope.locationClick = true;
