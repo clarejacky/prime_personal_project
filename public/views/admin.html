@@ -26,7 +26,7 @@
             </li>
             <li role="presentation"><a href="#resources">Resources</a></li>
             <li role="presentation"><a href="#about">About</a></li>
-            <li role="presentation" ng-click="showInput()"><a href="#about">Input</a></li>
+            <li role="presentation" ng-click="showInput()"><a href="#">Input</a></li>
             <div class="searchBox">
                 <input id="search" ng-model="location.name" type="text" placeholder="Search by Name" class="searchbox">
                 <input type="submit" ng-click="search(location.name)" class="btn">
@@ -37,7 +37,7 @@
         <h1>buffed<br><span class="minneapolis">mpls | stpl</span></h1>
 
     </header>
-    <div ng-show="show">
+    <div ng-show="show" ng-controller="RegistrationController">
         <form class="col-md-5" novalidate ng-submit="locationSubmit(location)">
             <h2>Input Location</h2>
             <label for="name">Location Name</label>
