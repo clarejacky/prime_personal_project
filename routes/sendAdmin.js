@@ -5,10 +5,15 @@ var path = require('path');
 var passport = require('passport');
 
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     if(req.isAuthenticated()) {
-        res.sendFile(path.resolve(__dirname, "../views/admin.html"));
+        console.log("You are logged in");
+        res.sendFile(path.resolve(__dirname, "../public/views/admin.html"));
+    } else {
+        console.log("Your not authenticated");
+        res.sendFile(path.resolve(__dirname, "../views/index.html"));
     }
+
 });
 
 module.exports = router;

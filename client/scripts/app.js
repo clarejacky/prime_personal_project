@@ -31,6 +31,10 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
         when('/location', {
             templateUrl: "/views/routes/location.html"
         }).
+        when('/resources', {
+            templateUrl: "/views/routes/resources.html",
+            controller: "ResourcesController"
+        }).
         when('/', {
             templateUrl: "/views/routes/home.html"
         }).

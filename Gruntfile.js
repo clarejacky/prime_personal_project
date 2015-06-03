@@ -10,12 +10,16 @@ module.exports = function(grunt) {
                 src: 'client/scripts/controllers/approve.js',
                 dest: 'public/javascripts/approve.min.js'
             },
+            buildResources: {
+                src: 'client/scripts/controllers/resources.js',
+                dest: 'public/javascripts/resources.min.js'
+            },
             buildFile: {
                 src: 'client/scripts/app.js',
                 dest: 'public/javascripts/app.min.js'
             },
             buildAgain: {
-                src: 'client/scripts/controllers/page.js',
+                src: 'client/scripts/controllers/resources.js',
                 dest: 'public/javascripts/page.min.js'
             }
         },
@@ -27,6 +31,14 @@ module.exports = function(grunt) {
                     "angular/angular.min.js",
                     "angular/angular.min.js.map",
                     "angular/angular-csp.css"
+                ],
+                "dest": "public/vendor/"
+            },
+            angularYoutube: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "angular-youtube-embed/api.js"
                 ],
                 "dest": "public/vendor/"
             },
@@ -125,7 +137,8 @@ module.exports = function(grunt) {
                     "input.html",
                     "home.html",
                     "comingsoon.html",
-                    "locationsFilter.html"
+                    "locationsFilter.html",
+                    "resources.html"
                 ],
                 "dest": "public/views/routes/"
             }

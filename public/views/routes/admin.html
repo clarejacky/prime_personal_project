@@ -1,10 +1,23 @@
+<!--<h2>Log In</h2>-->
+<!--<form class="col-md-5 admin" novalidate ng-submit="adminSubmit(admin)">-->
+        <!--<label for="username">Username</label>-->
+        <!--<input id="username" ng-model="admin.username" type="text"><br>-->
+        <!--<label for="password">Password</label>-->
+        <!--<input id="password" ng-model="admin.password" type="text">-->
+    <!--<br>-->
+    <!--<input type="submit" class="btn">-->
+<!--</form>-->
+
+
 <h2>Log In</h2>
-<form class="col-md-5 admin" novalidate ng-submit="adminSubmit(admin)">
-        <label for="username">Username</label>
-        <input id="username" ng-model="admin.username" type="text"><br>
-        <label for="password">Password</label>
-        <input id="password" ng-model="admin.password" type="text">
+<form class="col-md-5 admin" novalidate action="/" method="post">
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text"><br>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password">
     <br>
     <input type="submit" class="btn">
 </form>
+
+
 

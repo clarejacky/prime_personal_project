@@ -6,12 +6,12 @@ var passport = require('passport');
 
 
 
-router.post('/',
-    passport.authenticate('local', {
-        successRedirect: '/sendAdmin',
-        failureRedirect: '/'
-    })
-);
+//router.post('/',
+//    passport.authenticate('local', {
+//        successRedirect: '/sendAdmin',
+//        failureRedirect: '/'
+//    })
+//);
 
 
 

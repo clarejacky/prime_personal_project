@@ -8,13 +8,12 @@ app.controller('RegistrationController',['$scope','$http', '$location', function
 
 
     $scope.adminSubmit = function(admin){
-        $http.post('/admin', admin).then(function(response){
+        $http.post('/', admin).then(function(response){
             console.log(response);
         })
     };
 
     $scope.locationSubmit = function(location){
-        $scope.image = true;
 
         $http.post('/locations', location).then(function(response){
                 if(response.status === 200){
