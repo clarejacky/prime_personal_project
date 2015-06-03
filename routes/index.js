@@ -8,6 +8,7 @@ var Admin = require('../models/admin');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log("inside get request");
   res.sendFile(path.resolve(__dirname, "../views/index.html"));
 });
 

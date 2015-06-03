@@ -185,5 +185,11 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
         $scope.show = true;
     }
 
+    $scope.logOut = function(){
+        //$http.get('/').then(function(){
+        //    console.log("successful logout");
+        //    $scope.go('/');
+        //})
+    };
 
 }]);

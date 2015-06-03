@@ -22,9 +22,7 @@ app.controller('RegistrationController',['$scope','$http', '$location', function
 
                 }
             });
-        }
-
-
+        };
 
 
 }]);
