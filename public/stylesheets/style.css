@@ -9,6 +9,12 @@ h1 {
     font-weight: 300;
     font-size: 30px;
 }
+.everyBody {
+    font-weight: 300;
+    font-size: 20px;
+    margin-left: 10px;
+    color: grey;
+}
 
 img {
     margin: 20px 0;
@@ -44,9 +50,4 @@ form textarea {
 }
 .locations h3, .locations h4 {
     text-align: center;
-}
-form .admin input {
-}
-form .admin label {
-    /*width: 100%;*/
 }

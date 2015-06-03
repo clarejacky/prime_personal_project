@@ -34,14 +34,6 @@ module.exports = function(grunt) {
                 ],
                 "dest": "public/vendor/"
             },
-            angularYoutube: {
-                expand: true,
-                cwd: "node_modules/",
-                src: [
-                    "angular-youtube-embed/api.js"
-                ],
-                "dest": "public/vendor/"
-            },
             angularResource: {
                 expand: true,
                 cwd: "node_modules/",
@@ -86,14 +78,14 @@ module.exports = function(grunt) {
                 ],
                 "dest": "public/vendor/"
             },
-            angularStorage: {
-                expand: true,
-                cwd: "node_modules/",
-                src: [
-                    "angular-local-storage/dist/angular-local-storage.min.js"
-                ],
-                "dest": "public/vendor/"
-            },
+            //angularStorage: {
+            //    expand: true,
+            //    cwd: "node_modules/",
+            //    src: [
+            //        "angular-local-storage/dist/angular-local-storage.min.js"
+            //    ],
+            //    "dest": "public/vendor/"
+            //},
             bootstrap: {
                 expand: true,
                 cwd: "node_modules",
@@ -109,15 +101,15 @@ module.exports = function(grunt) {
                 ],
                 "dest": "public/vendor/"
             },
-            jQuery: {
-                expand: true,
-                cwd: "node_modules/",
-                src: [
-                    "jquery/dist/jquery.min.js",
-                    "jquery/dist/jquery.min.map"
-                ],
-                "dest": "public/vendor/"
-            },
+            //jQuery: {
+            //    expand: true,
+            //    cwd: "node_modules/",
+            //    src: [
+            //        "jquery/dist/jquery.min.js",
+            //        "jquery/dist/jquery.min.map"
+            //    ],
+            //    "dest": "public/vendor/"
+            //},
             styles: {
                 expand: true,
                 cwd: "client",
