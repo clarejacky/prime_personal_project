@@ -19,6 +19,9 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
         when('/about', {
             templateUrl: "/views/routes/about.html"
         }).
+        when('/submission', {
+            templateUrl: "/views/routes/submission.html"
+        }).
         when('/comingsoon', {
             templateUrl: "/views/routes/comingsoon.html"
         }).

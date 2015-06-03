@@ -138,7 +138,8 @@ module.exports = function(grunt) {
                     "home.html",
                     "comingsoon.html",
                     "locationsFilter.html",
-                    "resources.html"
+                    "resources.html",
+                    "submission.html"
                 ],
                 "dest": "public/views/routes/"
             }

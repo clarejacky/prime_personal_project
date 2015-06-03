@@ -17,7 +17,9 @@ app.controller('RegistrationController',['$scope','$http', '$location', function
 
         $http.post('/locations', location).then(function(response){
                 if(response.status === 200){
-                    $scope.go('/');
+                    $scope.show = false;
+                   $scope.go('/submission');
+
                 }
             });
         }
