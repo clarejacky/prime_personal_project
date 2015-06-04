@@ -177,12 +177,17 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             console.log(response.data[0].coordinates);
             $scope.el = response.data[0].coordinates;
             console.log($scope.el);
+            $scope.locationClick = true;
+            if(response.data[0].coordinates == undefined){
+                console.log("empty")
+            } else {
+                $scope.locationMap = true;
+            }
 
         }).then(function(){
             $scope.go('/location');
         })
-            $scope.locationClick = true;
-            $scope.locationMap = true;
+
     };
 
     //brings you to locations page if there isn't a location to populate location page

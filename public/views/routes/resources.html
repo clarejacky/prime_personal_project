@@ -3,7 +3,7 @@
         <h2>Daily Vid Inspiration</h2>
         <iframe width='100%' height='400px' ng-src="{{youtube}}"/></iframe>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5 col-md-offset-1">
         <h3>Leave Your Own Inspiration</h3>
         <form novalidate ng-submit="inspire(inspiration)">
             <label for="name"> Name</label>
@@ -21,7 +21,7 @@
 </div>
 
 
-<div class="inspirationPosts col-md-6" ng-repeat="inspiration in inspirations">
+<div class="inspirationPosts col-md-4" ng-repeat="inspiration in inspirations">
     <h4>{{inspiration.name}}</h4>
     <img width='100%' src="{{inspiration.imageurl}}">
     <p>{{inspiration.description}}</p>
