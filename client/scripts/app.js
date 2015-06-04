@@ -17,7 +17,8 @@ app.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProv
             controller: 'RegistrationController'
         }).
         when('/about', {
-            templateUrl: "/views/routes/about.html"
+            templateUrl: "/views/routes/about.html",
+            controller: "sendMessage"
         }).
         when('/submission', {
             templateUrl: "/views/routes/submission.html"

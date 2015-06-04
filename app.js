@@ -9,12 +9,15 @@ var localStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
+var nodemailer = require("nodemailer");
 var Admin = require('./models/admin');
 
 var routes = require('./routes/index');
 var locations = require('./routes/locations');
-var admin = require('./routes/admin');
+var admin = require('./routes/resource');
 var sendAdmin = require("./routes/sendAdmin");
+var resource = require('./routes/resource');
+var mail = require('./routes/mail.js');
 
 var app = express();
 
@@ -100,6 +103,8 @@ app.use('/', routes);
 app.use('/locations', locations);
 app.use('/admin', admin);
 app.use('/sendAdmin', sendAdmin);
+app.use('/resource', resource);
+app.use('/mail', mail);
 
 var mongoURI = "mongodb://localhost:27017/locations";
 var MongoDB = mongoose.connect(mongoURI).connection;

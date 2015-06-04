@@ -14,6 +14,10 @@ module.exports = function(grunt) {
                 src: 'client/scripts/controllers/resources.js',
                 dest: 'public/javascripts/resources.min.js'
             },
+            buildMailer: {
+                src: 'client/scripts/controllers/mailer.js',
+                dest: 'public/javascripts/mailer.min.js'
+            },
             buildFile: {
                 src: 'client/scripts/app.js',
                 dest: 'public/javascripts/app.min.js'
@@ -75,6 +79,14 @@ module.exports = function(grunt) {
                 src: [
                     "angular-bootstrap/dist/ui-bootstrap.min.js",
                     "angular-bootstrap/dist/ui-bootstrap-tpls.min.js"
+                ],
+                "dest": "public/vendor/"
+            },
+            nodemailer: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "nodemailer/src/nodemailer.js"
                 ],
                 "dest": "public/vendor/"
             },

@@ -2,12 +2,12 @@ app.controller('ResourcesController', ['$scope', '$http', '$location', '$sce', f
 
 
     var apikey = 'AIzaSyBVJJUB5vwtCNHdzPdoiQtjpZwaqAVaIXw';
-    var query  = 'feminism';
+    $scope.query  = 'body positive yoga';
 
-   var youtube = function(query){
-        console.log(query);
+   var youtube = function(){
+        console.log($scope.query);
         $http({
-            url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + 'bodypositiveyoga' + '&type=video&videoCaption=closedCaption&start-index=1&maxResults=10&orderby=published&key=' + apikey + '',
+            url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + $scope.query + '&type=video&videoCaption=closedCaption&start-index=1&maxResults=10&orderby=published&key=' + apikey + '',
             method: "GET"
         }).then(function(response){
             if(response.status !== 200){
@@ -21,5 +21,31 @@ app.controller('ResourcesController', ['$scope', '$http', '$location', '$sce', f
             })
     };
     youtube();
+
+    var fetchInspiration = function (){
+        return $http.get('/resource').then(function(response){
+            if(response.status !== 200){
+                throw new Error('Failed to fetch locations from the API');
+            }
+            $scope.inspiration={};
+            $scope.inspirations=response.data;
+            console.log(response.data);
+            return response.data;
+        })
+    }
+
+
+    $scope.inspire = function (inspiration){
+        $http.post('/resource', inspiration).then(function(response){
+            if(response.status === 200){
+               console.log(response);
+                fetchInspiration();
+                $scope.inspireme = true;
+
+            }
+        });
+    }
+
+
 
 }]);

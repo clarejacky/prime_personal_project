@@ -1,2 +1,39 @@
 <h2>About Buffed</h2>
 
+<!--<div ng-controller="sendMessage">-->
+    <div class="email col-md-4">
+        <h2>Send us a Message</h2>
+        <p>Want your fitness space to be apart of Buffed?</p>
+        <p>Send us a message and we will get back to you as soon as possible</p>
+
+        <form name="contactForm" class="form-horizontal" ng-submit="mailer(mail)">
+            <div class="form-group">
+                <label for="emailaddress" class="col-md-3">Your Email: </label>
+                <div class="col-md-9">
+                    <input ng-model="mail.senderemail" name="senderemail" type="text" class="form-control"
+                           id="emailaddress" ng-required="true">
+                    <p ng-show="contactForm.senderemail.$invalid && contactForm.senderemail.$touched">Please provide an email address</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="emailsubject" class="col-md-3">Subject: </label>
+                <div class="col-md-9">
+                    <input ng-model="mail.subject" name="emailsubject" type="text" class="form-control"
+                           id="emailsubject" ng-required="true"/>
+                    <p ng-show="contactForm.emailsubject.$invalid && contactForm.emailsubject.$touched">Please provide an subject</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="emailbody" class="col-md-3">Body: </label>
+                <div class="col-md-9">
+                    <textarea ng-model="mail.emailbody" name="textarea" rows="15" cols="50" form="emailbody"
+                              id="emailbody" ng-required="true"></textarea>
+                    <p ng-show="contactForm.textarea.$invalid && contactForm.textarea.$touched">Please provide some information</p>
+                </div>
+            </div>
+
+            <button type="submit" ng-disabled="myform.$invalid" class="btn-lg btn-info">Send Message</button>
+        </form>
+    </div>
