@@ -15,7 +15,7 @@ app.controller('ResourcesController', ['$scope', '$http', '$location', '$sce', f
             } else {
                 //$scope.youtube = response.data.items[0].id.videoId;
                 console.log(response.data.items[0].id.videoId);
-                $scope.youtube = $sce.trustAsResourceUrl("http://www.youtube.com/embed/"+ response.data.items[0].id.videoId);
+                $scope.youtube = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+ response.data.items[0].id.videoId);
                 console.log($scope.youtube);
                 }
             })
