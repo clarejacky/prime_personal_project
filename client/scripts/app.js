@@ -74,14 +74,15 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
     $scope.location ={};
     $scope.locations =[];
 
+    //helper function to reroute to different page
     $scope.go = function ( path ) {
         $location.path( path );
     };
-
+    //helper function to reload home
     $scope.reloadRoute = function() {
         $scope.go('/');
-    }
-
+    };
+    //function to fetch and load all locations from database
     var fetchLocations = function(){
         console.log("click worked");
         return $http.get('/locations').then(function(response){
@@ -94,19 +95,25 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             return response.data;
         })
     };
+    //call fetchLocations to populate locations on page load
     fetchLocations();
 
+    //click function to fetch locations
+    //locationClick is on location template page, shows location information
     $scope.add = function(){
         $scope.locationClick = true;
         fetchLocations();
-    }
+    };
 
+    //set fitness type variable during filter function
     $scope.yoga = 'Yoga';
     $scope.pilates = 'Pilates';
     $scope.barre ='Barre';
     $scope.hiit = 'HIIT';
     $scope.crossfit ='Crossfit';
     $scope.general = 'General Fitness';
+
+    //$scope.filter returns locations that fit with the matching fitnessType
     $scope.filter = function(fitnessType){
         $scope.locationClick = true;
         console.log(fitnessType);
@@ -127,7 +134,7 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             }
         })
     };
-
+    //$scope.search returns location that fits searched name
     $scope.search = function(name){
         $scope.locationClick = true;
         $location.url('/locations');
@@ -147,9 +154,10 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
         })
     };
 
-    //
+    //map coordinate variable
     $scope.el;
 
+    //loads location with information and google map api
     $scope.searchLocation = function(name){
         $scope.locationClick = true;
         console.log(name);
@@ -163,6 +171,8 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             }
             $scope.location={};
             $scope.locations=response.data;
+            $scope.website = "http://"+response.data[0].website;
+            console.log($scope.website);
             console.log(response.data[0].coordinates);
             $scope.el = response.data[0].coordinates;
             console.log($scope.el);
@@ -170,25 +180,25 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
         }).then(function(){
             $scope.go('/location');
         })
-        $scope.locationClick = true;
-        $scope.locationMap = true;
+            $scope.locationClick = true;
+            $scope.locationMap = true;
     };
 
+    //brings you to locations page if there isn't a location to populate location page
     $scope.locationPage = function(){
         $scope.go('/locations');
     };
 
-    //if($scope.locations == []){
-    //    $scope.go('/locations');
-    //}
+
+    //shows input box on admin page
     $scope.showInput = function() {
         $scope.show = true;
-    }
+    };
 
+    //sends admin back to root page
     $scope.logOut = function(){
-        //$http.get('/').then(function(){
-            console.log("successful logout");
-            window.location.href="/";
+        console.log("successful logout");
+        window.location.href="/";
             //clear session, with express-session or check window cookies
     };
 
