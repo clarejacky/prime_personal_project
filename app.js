@@ -106,7 +106,7 @@ app.use('/sendAdmin', sendAdmin);
 app.use('/resource', resource);
 app.use('/mail', mail);
 
-var mongoURI = "mongodb://localhost:27017/locations";
+var mongoURI = mongodb://personal_project:buffedup@ds043022.mongolab.com:43022/personal_project;
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function (err) {
