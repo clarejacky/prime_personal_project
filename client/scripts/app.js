@@ -187,9 +187,9 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
 
     $scope.logOut = function(){
         //$http.get('/').then(function(){
-        //    console.log("successful logout");
-        //    $scope.go('/');
-        //})
+            console.log("successful logout");
+            window.location.href="/";
+            //clear session, with express-session or check window cookies
     };
 
 }]);

@@ -14,7 +14,7 @@ var Admin = require('./models/admin');
 var routes = require('./routes/index');
 var locations = require('./routes/locations');
 var admin = require('./routes/admin');
-var sendAdmin = require("./routes/sendAdmin")
+var sendAdmin = require("./routes/sendAdmin");
 
 var app = express();
 
