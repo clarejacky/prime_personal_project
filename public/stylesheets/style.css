@@ -49,3 +49,7 @@ form textarea {
 .locations h3 {
     text-align: center;
 }
+.email .btn {
+    float: right;
+}
+
