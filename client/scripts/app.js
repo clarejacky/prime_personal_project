@@ -178,10 +178,10 @@ app.controller('LocationsController', ['$scope', '$http', '$location', function(
             $scope.el = response.data[0].coordinates;
             console.log($scope.el);
             $scope.locationClick = true;
+            $scope.locationMap = true;
             if(response.data[0].coordinates == undefined){
                 console.log("empty")
-            } else {
-                $scope.locationMap = true;
+                $scope.locationMap = false;
             }
 
         }).then(function(){
